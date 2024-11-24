@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CourseBusiness.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">javatests</a> &gt; <a href="index.source.html" class="el_package">br.com.javatests.business</a> &gt; <span class="el_source">CourseBusiness.java</span></div><h1>CourseBusiness.java</h1><pre class="source lang-java linenums">package br.com.javatests.business;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.javatests.services.CourseService;
+
+public class CourseBusiness {
+	
+	private CourseService service;
+	
+<span class="fc" id="L12">	public CourseBusiness(CourseService service) {</span>
+<span class="fc" id="L13">		this.service = service;</span>
+<span class="fc" id="L14">	}</span>
+	
+	public List&lt;String&gt; retriveCoursesRelatedToSpring(String student) {
+		
+<span class="fc" id="L18">		List&lt;String&gt; filteredCourses = new ArrayList&lt;String&gt;();</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">		if (student.equals(&quot;Nome&quot;)) return filteredCourses;</span>
+		
+<span class="fc" id="L21">		List&lt;String&gt; allCourses = new ArrayList&lt;String&gt;(service.retrieveCourses(student));</span>
+		
+<span class="fc bfc" id="L23" title="All 2 branches covered.">		for (String course : allCourses) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">			if (course.contains(&quot;Spring&quot;)) {</span>
+<span class="fc" id="L25">				filteredCourses.add(course);</span>
+			}
+<span class="fc" id="L27">		}</span>
+		
+<span class="fc" id="L29">		return filteredCourses;</span>
+		
+	}
+	
+	public void deleteCoursesRelatedToSpring(String student) {
+		
+<span class="fc" id="L35">		List&lt;String&gt; allCourses = new ArrayList&lt;String&gt;(service.retrieveCourses(student));</span>
+		
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		for (String course : allCourses) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">			if (!course.contains(&quot;Spring&quot;)) {</span>
+<span class="fc" id="L39">				service.deleteCourse(course);</span>
+			}
+<span class="fc" id="L41">		}</span>
+		
+<span class="fc" id="L43">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

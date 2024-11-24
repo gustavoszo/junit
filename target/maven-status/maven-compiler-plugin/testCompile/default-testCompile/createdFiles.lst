@@ -1,0 +1,4 @@
+br\com\javatests\business\CourseBusinessStubTest.class
+br\com\javatests\business\CourseBusinessMockTest.class
+br\com\javatests\services\stubs\CourseServiceStub.class
+br\com\javatests\business\TestList.class
